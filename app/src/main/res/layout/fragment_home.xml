@@ -15,47 +15,6 @@
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
-                android:id="@+id/ll_home_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/diagnosis"
-                    android:layout_marginBottom="20dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_perintah"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_petunjuk"
-                    android:layout_marginTop="24dp"/>
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/et_gejala"
-                android:layout_width="285dp"
-                android:layout_height="wrap_content"
-                android:elevation="1dp"
-                android:hint="@string/hint_gejala"
-                android:textSize="14sp"
-                android:background="@drawable/shape_edittext"
-                android:padding="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ll_home_text" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cv_home_hospital"
