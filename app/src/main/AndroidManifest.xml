@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LabHealthme">
-        <activity android:name=".login.RegisterActivity"/>
+        <activity
+            android:name=".diagnose.DiagnoseActivity"
+            android:exported="true" />
+        <activity android:name=".login.RegisterActivity" />
         <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.MainActivity"/>
-        <activity android:name=".main.home.MapsActivity"/>
+        <activity android:name=".main.MainActivity" />
+        <activity android:name=".main.home.MapsActivity" />
 
         <meta-data
             android:name="com.google.android.gms.version"
