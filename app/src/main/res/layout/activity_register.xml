@@ -2,8 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,43 +12,44 @@
         tools:context=".login.RegisterActivity">
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/LayoutLoginRegis"
+            style="@style/TextInputLayoutLoginRegis"
             android:hint="@string/et_nama_lengkap">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_nama_lengkap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Hai"/>
+                tools:text="Hai" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/LayoutLoginRegis"
+            style="@style/TextInputLayoutLoginRegis"
             android:hint="@string/et_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/LayoutLoginRegis.Password"
+            style="@style/TextInputLayoutLoginRegis.Password"
             android:hint="@string/et_password">
+
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_password1"
+                android:id="@+id/et_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/LayoutLoginRegis.Password"
+            style="@style/TextInputLayoutLoginRegis.Password"
             android:hint="@string/et_password2">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_password2"
+                android:id="@+id/et_password_ulang"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

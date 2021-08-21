@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginActivity"
-    android:padding="24dp">
+    android:padding="24dp"
+    tools:context=".login.LoginActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,34 +12,40 @@
         android:layout_centerInParent="true">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/et_email"
-            style="@style/LayoutLoginRegis"
+            android:id="@+id/et_email_layout"
+            style="@style/TextInputLayoutLoginRegis"
             android:hint="@string/et_email">
 
-            <com.google.android.material.textfield.TextInputEditText style="@style/EditTextShape.Full.LoginRegis" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/et_password"
-            android:layout_below="@+id/et_email"
-            style="@style/LayoutLoginRegis.Password"
+            android:id="@+id/et_password_layout"
+            style="@style/TextInputLayoutLoginRegis.Password"
+            android:layout_below="@+id/et_email_layout"
             android:hint="@string/et_password">
 
             <com.google.android.material.textfield.TextInputEditText
-                style="@style/EditTextShape.Full.LoginRegis" />
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btn_login"
-            android:text="@string/btn_masuk"
+            style="@style/MyButton.Login"
+            android:layout_below="@+id/et_password_layout"
             android:layout_marginTop="24dp"
-            android:layout_below="@+id/et_password"
-            style="@style/MyButton.Login"/>
+            android:text="@string/btn_masuk" />
+
         <Button
             android:id="@+id/btn_register"
-            android:text="@string/btn_make_account"
+            style="@style/MyButton.Register"
             android:layout_below="@+id/btn_login"
-            style="@style/MyButton.Register"/>
+            android:text="@string/btn_make_account" />
     </RelativeLayout>
 
 </RelativeLayout>
