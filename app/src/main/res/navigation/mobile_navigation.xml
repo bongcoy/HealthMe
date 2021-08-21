@@ -10,6 +10,11 @@
         android:label="Home"
         tools:layout="@layout/fragment_home" />
     <fragment
+        android:id="@+id/nav_calendar"
+        android:name="com.example.labhealthme.fragment.calendar.CalendarFragment"
+        android:label="Calendar"
+        tools:layout="@layout/fragment_calendar" />
+    <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.labhealthme.fragment.profile.ProfileFragment"
         android:label="Profile"
