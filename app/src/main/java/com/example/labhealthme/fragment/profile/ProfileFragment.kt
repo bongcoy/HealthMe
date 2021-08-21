@@ -1,4 +1,4 @@
-package com.example.labhealthme.main.profile
+package com.example.labhealthme.fragment.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

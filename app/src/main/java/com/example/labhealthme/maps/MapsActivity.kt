@@ -1,4 +1,4 @@
-package com.example.labhealthme.main.home
+package com.example.labhealthme.maps
 
 import android.annotation.SuppressLint
 import android.content.Intent

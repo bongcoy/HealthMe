@@ -1,15 +1,11 @@
-package com.example.labhealthme.login
+package com.example.labhealthme.loginreg
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.labhealthme.R
 import com.example.labhealthme.User
 import com.example.labhealthme.databinding.ActivityRegisterBinding
-import com.example.labhealthme.main.MainActivity
-import com.google.android.material.textfield.TextInputLayout
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class RegisterActivity : AppCompatActivity() {

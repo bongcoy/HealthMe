@@ -1,4 +1,4 @@
-package com.example.labhealthme.main.home
+package com.example.labhealthme.fragment.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.labhealthme.R
 import com.example.labhealthme.databinding.FragmentHomeBinding
+import com.example.labhealthme.maps.MapsActivity
 
 class HomeFragment : Fragment() {
     private var _binding : FragmentHomeBinding? = null
@@ -22,11 +22,8 @@ class HomeFragment : Fragment() {
 
         binding.apply {
             cvHomeHospital.setOnClickListener {
-                val intent = Intent(activity,MapsActivity::class.java)
+                val intent = Intent(activity, MapsActivity::class.java)
                 activity?.startActivity(intent)
-            }
-            cvHomeApotek.setOnClickListener {
-                
             }
         }
 

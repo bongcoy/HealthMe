@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="24dp"
-        tools:context=".login.RegisterActivity">
+        tools:context=".loginreg.RegisterActivity">
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/TextInputLayoutLoginRegis"

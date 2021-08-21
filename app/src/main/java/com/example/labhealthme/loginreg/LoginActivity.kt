@@ -1,9 +1,8 @@
-package com.example.labhealthme.login
+package com.example.labhealthme.loginreg
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.labhealthme.R
 import com.example.labhealthme.databinding.ActivityLoginBinding
 import com.example.labhealthme.main.MainActivity
 
