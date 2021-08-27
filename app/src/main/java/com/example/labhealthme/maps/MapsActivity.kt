@@ -7,8 +7,9 @@ import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContract
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -17,32 +18,48 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 
+// TODO : First run ga minta request
+// TODO : ForResult nya ga jalan
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var isPermissionGranted: Boolean = false
-    private var GPS_REQUEST_CODE = 9001
+    private var GPS_REQUEST_CODE = 1
+    private val TAG = "MAPS ACT WOYYYYY"
 
     private lateinit var googleMap: GoogleMap
-
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     private lateinit var lastLocation: Location
-
     private lateinit var latLng: LatLng
     private lateinit var cameraUpdate: CameraUpdate
+
+    private val activityResultLauncher: ActivityResultLauncher<Intent> =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == GPS_REQUEST_CODE) {
+                val locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
+                val providerEnable =
+                    locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+
+                if (providerEnable) {
+                    Toast.makeText(this@MapsActivity, "GPS is enable", Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    Toast.makeText(this@MapsActivity, "GPS is not enable", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
         checkMyPermission()
-
         initMap()
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
@@ -52,25 +69,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 //        }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == GPS_REQUEST_CODE){
-            val locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
-            val providerEnable = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-
-            if (providerEnable){
-                Toast.makeText(this@MapsActivity, "GPS is enable", Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(this@MapsActivity, "GPS is not enable", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
     @SuppressLint("MissingPermission")
     private fun currentLoc() {
         mFusedLocationClient.lastLocation.addOnCompleteListener(this) { task ->
-            if (task.isSuccessful){
+            if (task.isSuccessful) {
                 lastLocation = task.result
                 goToLocation(lastLocation.latitude, lastLocation.longitude)
             }
@@ -86,40 +88,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun initMap() {
         if (isPermissionGranted && isGpsEnabled()) {
-            val mapFragment = supportFragmentManager.findFragmentById(R.id.map_view_fragment) as SupportMapFragment
+            val mapFragment =
+                supportFragmentManager.findFragmentById(R.id.map_view_fragment) as SupportMapFragment
             mapFragment.getMapAsync(this)
         }
     }
 
-    //Todo: onActivityResult
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//
-//        if (requestCode == GPS_REQUEST_CODE){
-//            val locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
-//            val providerEnable = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-//
-//            if (providerEnable){
-//                Toast.makeText(this@MapsActivity, "GPS is enable", Toast.LENGTH_SHORT).show()
-//            }else{
-//                Toast.makeText(this@MapsActivity, "GPS is not enable", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//    }
-
     private fun isGpsEnabled(): Boolean {
         val locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
         val providerEnable = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-        if (providerEnable){
+        if (providerEnable) {
             return true
-        }else{
+        } else {
             AlertDialog.Builder(this)
                 .setTitle("GPS Permission")
                 .setMessage("GPS is required for this app to work. Please enable GPS")
                 .setPositiveButton("Go To Settings") { _, _ ->
-                    //Todo: startActivityForResult
-                    val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                    startActivityForResult(intent,GPS_REQUEST_CODE);
+                    val resultIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                    Log.d(TAG,"INI POSITIVE BUTTON KALO UDAH DIPENCET")
+                    activityResultLauncher.launch(resultIntent)
                 }
                 .setCancelable(false)
                 .show()
@@ -136,12 +123,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             .withPermissions(permissions)
             .withListener(object : MultiplePermissionsListener {
                 override fun onPermissionsChecked(p0: MultiplePermissionsReport?) {
-                    if (p0!!.areAllPermissionsGranted()) {
-                        Toast.makeText(this@MapsActivity, "Permission Granted !", Toast.LENGTH_SHORT).show()
-                        isPermissionGranted = true
-                    }
-                    if (p0.isAnyPermissionPermanentlyDenied) {
-                        showSettingsDialog()
+                    if (p0 != null) {
+                        if (p0.areAllPermissionsGranted()) {
+                            Toast.makeText(
+                                this@MapsActivity,
+                                "Permission Granted !",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            isPermissionGranted = true
+                        }
+                        if (p0.isAnyPermissionPermanentlyDenied) {
+                            showSettingsDialog()
+                        }
                     }
                 }
 
@@ -154,7 +147,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             }).check()
     }
 
-    private fun showSettingsDialog(){
+    private fun showSettingsDialog() {
         AlertDialog.Builder(this)
             .setTitle("Need Permission")
             .setMessage("This app needs permission to use this feature. You can grant this from app settings")
@@ -162,7 +155,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 dialog.cancel()
                 openSettings()
             }
-            .setNegativeButton("Cancel"){ dialog, _ ->
+            .setNegativeButton("Cancel") { dialog, _ ->
                 dialog.cancel()
             }
             .show()
