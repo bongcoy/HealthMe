@@ -2,18 +2,22 @@ package com.example.labhealthme.maps
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.location.Address
+import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.labhealthme.R
+import com.example.labhealthme.databinding.ActivityMapsBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.*
@@ -23,6 +27,8 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import java.io.IOException
+import java.util.*
 
 // TODO : First run ga minta request
 // TODO : ForResult nya ga jalan
@@ -32,6 +38,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var GPS_REQUEST_CODE = 1
     private val TAG = "MAPS ACT WOYYYYY"
 
+    private lateinit var binding: ActivityMapsBinding
     private lateinit var googleMap: GoogleMap
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     private lateinit var lastLocation: Location
@@ -57,34 +64,56 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
+        binding = ActivityMapsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         checkMyPermission()
         initMap()
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
+        binding.apply {
+            ivSearchIcon.setOnClickListener(this@MapsActivity::)
+        }
 //        binding.btn_my_current.setOnClickListener {
 //            currentLoc()
 //        }
     }
 
     @SuppressLint("MissingPermission")
-    private fun currentLoc() {
-        mFusedLocationClient.lastLocation.addOnCompleteListener(this) { task ->
-            if (task.isSuccessful) {
-                lastLocation = task.result
-                goToLocation(lastLocation.latitude, lastLocation.longitude)
-            }
+    override fun onMapReady(p0: GoogleMap) {
+        Log.d(TAG,"MAP dah readyyyyyy")
+        googleMap = p0
+        googleMap.isMyLocationEnabled = true
+        googleMap.uiSettings.isMyLocationButtonEnabled = true
+    }
+
+    private fun geoLocate(view: View){
+        val locationName = binding.etSearch.text.toString()
+        val geocoder = Geocoder(this, Locale.getDefault())
+        try {
+            val addressList: List<Address> = geocoder.getFromLocationName(locationName,1)
+        } catch (e:IOException){
+            e.printStackTrace()
         }
     }
 
-    private fun goToLocation(latitude: Double, longitude: Double) {
-        latLng = LatLng(latitude, longitude)
-        cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10F)
-        googleMap.moveCamera(cameraUpdate)
-        googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
-    }
+//    @SuppressLint("MissingPermission")
+//    private fun currentLoc() {
+//        mFusedLocationClient.lastLocation.addOnCompleteListener(this) { task ->
+//            if (task.isSuccessful) {
+//                lastLocation = task.result
+//                goToLocation(lastLocation.latitude, lastLocation.longitude)
+//            }
+//        }
+//    }
+
+//    private fun goToLocation(latitude: Double, longitude: Double) {
+//        latLng = LatLng(latitude, longitude)
+//        cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10F)
+//        googleMap.moveCamera(cameraUpdate)
+//        googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+//    }
 
     private fun initMap() {
         if (isPermissionGranted && isGpsEnabled()) {
@@ -125,6 +154,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 override fun onPermissionsChecked(p0: MultiplePermissionsReport?) {
                     if (p0 != null) {
                         if (p0.areAllPermissionsGranted()) {
+                            // TODO: Ini kalo GPS ga nyala KENAPA areAll == True ???
                             Toast.makeText(
                                 this@MapsActivity,
                                 "Permission Granted !",
@@ -132,7 +162,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                             ).show()
                             isPermissionGranted = true
                         }
+
+                        // if there were PERMANENT denied permissions
                         if (p0.isAnyPermissionPermanentlyDenied) {
+                            Log.d(TAG,"isAnyPermanentDenied Jalannnnnnnnnnnnnn")
                             showSettingsDialog()
                         }
                     }
@@ -167,12 +200,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
         intent.data = uri
         startActivity(intent)
-    }
-
-    @SuppressLint("MissingPermission")
-    override fun onMapReady(p0: GoogleMap) {
-        googleMap = p0
-        googleMap.isMyLocationEnabled = true
-        googleMap.uiSettings.isMyLocationButtonEnabled = true
     }
 }
