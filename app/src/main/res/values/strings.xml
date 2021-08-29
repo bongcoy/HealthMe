@@ -4,9 +4,11 @@
     <string name="rumah_sakit">Rumah Sakit</string>
     <string name="apotek">Apotek</string>
     <string name="diagnosis">Diagnosis</string>
+
     <string name="hint_gejala">Contoh : pusing, mual, demam</string>
     <string name="home_perintah">Beri tahu kami keluhan yang Anda rasakan untuk mengetahui kemungkinan penyebabnya!</string>
     <string name="home_petunjuk">masukkan tanda koma setelah setiap gejala</string>
+
     <string name="et_nama_lengkap">Nama Lengkap</string>
     <string name="btn_masuk">Masuk</string>
     <string name="btn_make_account">Buat akun baru</string>
@@ -17,6 +19,7 @@
     <string name="tv_statement">Dengan mendaftar, saya akan menerima</string>
     <string name="tv_terms">Syarat &amp; ketentuan</string>
     <string name="tv_have_an_account">Sudah mempunyai akun ?</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--    Menu-->

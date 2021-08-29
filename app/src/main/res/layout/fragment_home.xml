@@ -20,8 +20,8 @@
                 android:id="@+id/cv_home_hospital"
                 style="@style/CardViewButton"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/cv_home_apotek"
+                app:layout_constraintStart_toEndOf="@+id/cv_home_diagnose"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
@@ -40,6 +40,51 @@
                 app:layout_constraintStart_toStartOf="@+id/cv_home_hospital"
                 app:layout_constraintTop_toBottomOf="@+id/cv_home_hospital" />
 
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_home_diagnose"
+                style="@style/CardViewButton"
+                app:layout_constraintEnd_toStartOf="@+id/cv_home_hospital"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cv_home_hospital">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_apartment_24" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tv_home_diagnose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/diagnosis"
+                app:layout_constraintEnd_toEndOf="@+id/cv_home_diagnose"
+                app:layout_constraintStart_toStartOf="@+id/cv_home_diagnose"
+                app:layout_constraintTop_toBottomOf="@+id/cv_home_diagnose" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_home_apotek"
+                style="@style/CardViewButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cv_home_hospital"
+                app:layout_constraintTop_toTopOf="@+id/cv_home_hospital">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_apartment_24" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tv_home_apotek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/apotek"
+                app:layout_constraintEnd_toEndOf="@+id/cv_home_apotek"
+                app:layout_constraintStart_toStartOf="@+id/cv_home_apotek"
+                app:layout_constraintTop_toBottomOf="@+id/cv_home_apotek" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </FrameLayout>
