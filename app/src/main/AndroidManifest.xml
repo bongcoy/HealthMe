@@ -27,7 +27,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".main.MainActivity" />
-        <activity android:name=".maps.MapsActivity" />
+        <activity
+            android:name=".maps.MapsActivity"
+            android:theme="@style/Theme.LabHealthme.FullScreen" />
 
         <meta-data
             android:name="com.google.android.gms.version"

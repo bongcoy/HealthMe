@@ -22,6 +22,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -73,7 +74,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         binding.apply {
-            ivSearchIcon.setOnClickListener(this@MapsActivity::)
+            ivSearchIcon.setOnClickListener(this@MapsActivity::geoLocate)
         }
 //        binding.btn_my_current.setOnClickListener {
 //            currentLoc()
@@ -85,6 +86,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         Log.d(TAG,"MAP dah readyyyyyy")
         googleMap = p0
         googleMap.isMyLocationEnabled = true
+        // TODO: Munculin tombol saat buka pertama kali
         googleMap.uiSettings.isMyLocationButtonEnabled = true
     }
 
@@ -93,6 +95,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val geocoder = Geocoder(this, Locale.getDefault())
         try {
             val addressList: List<Address> = geocoder.getFromLocationName(locationName,1)
+            if (addressList.isNotEmpty()){
+                val address = addressList[0]
+                goToLocation(address.latitude,address.longitude)
+                googleMap.addMarker(MarkerOptions().position(LatLng(address.latitude,address.longitude)))
+                Toast.makeText(
+                    this@MapsActivity,
+                    address.locality,
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         } catch (e:IOException){
             e.printStackTrace()
         }
@@ -108,12 +120,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 //        }
 //    }
 
-//    private fun goToLocation(latitude: Double, longitude: Double) {
-//        latLng = LatLng(latitude, longitude)
-//        cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10F)
-//        googleMap.moveCamera(cameraUpdate)
-//        googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
-//    }
+    private fun goToLocation(latitude: Double, longitude: Double) {
+        latLng = LatLng(latitude, longitude)
+        cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10F)
+        googleMap.moveCamera(cameraUpdate)
+        googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+    }
 
     private fun initMap() {
         if (isPermissionGranted && isGpsEnabled()) {

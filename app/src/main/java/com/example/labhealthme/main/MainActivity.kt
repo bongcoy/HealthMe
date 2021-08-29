@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration.Builder(
             R.id.nav_home,
             R.id.nav_calendar,
+            R.id.nav_pharmacy,
             R.id.nav_profile
         ).build()
 

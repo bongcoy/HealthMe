@@ -15,6 +15,11 @@
         android:label="Calendar"
         tools:layout="@layout/fragment_calendar" />
     <fragment
+        android:id="@+id/nav_pharmacy"
+        android:name="com.example.labhealthme.fragment.pharmacy.PharmacyFragment"
+        android:label="Pharmacy"
+        tools:layout="@layout/fragment_pharmacy"/>
+    <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.labhealthme.fragment.profile.ProfileFragment"
         android:label="Profile"
