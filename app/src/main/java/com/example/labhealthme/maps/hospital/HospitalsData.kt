@@ -70,7 +70,8 @@ object HospitalsData {
                 hospital.name = HospitalsData.names[position]
                 hospital.distance = HospitalsData.distances[position]
                 hospital.waitingStatus = HospitalsData.status[position]
-                hospital.doctors = HospitalsData.listDoctors[position]
+                //TODO: Harus cepet selesai !!!
+//                hospital.doctors = HospitalsData.listDoctors[position]
                 arrList.add(hospital)
             }
             return arrList
