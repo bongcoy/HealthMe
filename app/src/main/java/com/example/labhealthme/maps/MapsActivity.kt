@@ -2,15 +2,12 @@ package com.example.labhealthme.maps
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.location.Address
-import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -22,13 +19,11 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
-import java.io.IOException
 import java.util.*
 
 // TODO : First run ga minta request
@@ -83,7 +78,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     @SuppressLint("MissingPermission")
     override fun onMapReady(p0: GoogleMap) {
-        Log.d(TAG,"MAP dah readyyyyyy")
+        Log.d(TAG, "MAP dah readyyyyyy")
         googleMap = p0
         googleMap.isMyLocationEnabled = true
         // TODO: Munculin tombol saat buka pertama kali
@@ -147,7 +142,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 .setMessage("GPS is required for this app to work. Please enable GPS")
                 .setPositiveButton("Go To Settings") { _, _ ->
                     val resultIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-                    Log.d(TAG,"INI POSITIVE BUTTON KALO UDAH DIPENCET")
+                    Log.d(TAG, "INI POSITIVE BUTTON KALO UDAH DIPENCET")
                     activityResultLauncher.launch(resultIntent)
                 }
                 .setCancelable(false)
@@ -178,7 +173,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                         // if there were PERMANENT denied permissions
                         if (p0.isAnyPermissionPermanentlyDenied) {
-                            Log.d(TAG,"isAnyPermanentDenied Jalannnnnnnnnnnnnn")
+                            Log.d(TAG, "isAnyPermanentDenied Jalannnnnnnnnnnnnn")
                             showSettingsDialog()
                         }
                     }
