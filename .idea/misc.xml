@@ -3,15 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/drawable/shape_button_corner.xml" value="0.225" />
+        <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/drawable/shape_circle_notif.xml" value="0.225" />
+        <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/drawable/shape_edittext.xml" value="0.225" />
+        <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/drawable/shape_photo_rounded.xml" value="0.225" />
+        <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/layout/activity_choose_search_loc.xml" value="0.20885416666666667" />
         <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/layout/activity_diagnose.xml" value="0.22" />
         <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/layout/activity_maps.xml" value="0.21203703703703702" />
+        <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/layout/activity_maps.xml" value="0.2" />
         <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/layout/fragment_calendar.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/layout/fragment_pharmacy.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/layout/fragment_profile.xml" value="0.2111111111111111" />
+        <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/layout/item_hospital.xml" value="0.25" />
         <entry key="..\:/Users/mpasc/AndroidStudioProjects/LabHealthme/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2064814814814815" />
       </map>
     </option>

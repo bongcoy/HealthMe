@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">LabHealthme</string>
 
+    <!--    Menu-->
+    <string name="home_menu">Home</string>
+    <string name="calendar_menu">Calendar</string>
+    <string name="pharmacy_menu">Pharmacy</string>
+    <string name="profile_menu">Profile</string>
+
     <string name="rumah_sakit">Rumah Sakit</string>
     <string name="apotek">Apotek</string>
     <string name="diagnosis">Diagnosis</string>
@@ -9,23 +15,28 @@
     <string name="home_perintah">Beri tahu kami keluhan yang Anda rasakan untuk mengetahui kemungkinan penyebabnya!</string>
     <string name="home_petunjuk">masukkan tanda koma setelah setiap gejala</string>
 
-    <string name="et_nama_lengkap">Nama Lengkap</string>
     <string name="btn_masuk">Masuk</string>
     <string name="btn_make_account">Buat akun baru</string>
+    <string name="btn_register">Daftar</string>
+
+    <string name="et_nama_lengkap">Nama Lengkap</string>
     <string name="et_email">Email</string>
     <string name="et_password">Kata Sandi</string>
     <string name="et_password2">Ulang Kata Sandi</string>
-    <string name="btn_register">Daftar</string>
+
     <string name="tv_statement">Dengan mendaftar, saya akan menerima</string>
     <string name="tv_terms">Syarat &amp; ketentuan</string>
     <string name="tv_have_an_account">Sudah mempunyai akun ?</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <!--    Menu-->
-    <string name="home_menu">Home</string>
-    <string name="calendar_menu">Calendar</string>
-    <string name="pharmacy_menu">Pharmacy</string>
-    <string name="profile_menu">Profile</string>
     <string name="cek_gejala">Cek Gejala</string>
+    <string name="antrean">Antrean:</string>
+    <string name="from_ur_loc">dari lokasi Anda</string>
+
+    <!--    Dummy-->
+    <string name="dummy_hospital1">RS Hermina Pasteur</string>
+    <string name="dummy_distance1">5 km</string>
+    <string name="dummy_waiting_status1">tidak penuh</string>
+    <string name="buat_janji_rs">Buat Janji RS</string>
+
 </resources>

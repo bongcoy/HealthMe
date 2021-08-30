@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.LabHealthme.FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.LabHealthme.FullScreen">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

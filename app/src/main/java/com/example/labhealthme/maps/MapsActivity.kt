@@ -74,7 +74,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         binding.apply {
-            ivSearchIcon.setOnClickListener(this@MapsActivity::geoLocate)
+//            ivSearchIcon.setOnClickListener(this@MapsActivity::geoLocate)
         }
 //        binding.btn_my_current.setOnClickListener {
 //            currentLoc()
@@ -90,25 +90,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         googleMap.uiSettings.isMyLocationButtonEnabled = true
     }
 
-    private fun geoLocate(view: View){
-        val locationName = binding.etSearch.text.toString()
-        val geocoder = Geocoder(this, Locale.getDefault())
-        try {
-            val addressList: List<Address> = geocoder.getFromLocationName(locationName,1)
-            if (addressList.isNotEmpty()){
-                val address = addressList[0]
-                goToLocation(address.latitude,address.longitude)
-                googleMap.addMarker(MarkerOptions().position(LatLng(address.latitude,address.longitude)))
-                Toast.makeText(
-                    this@MapsActivity,
-                    address.locality,
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        } catch (e:IOException){
-            e.printStackTrace()
-        }
-    }
+//    private fun geoLocate(view: View){
+//        val locationName = binding.etSearch.text.toString()
+//        val geocoder = Geocoder(this, Locale.getDefault())
+//        try {
+//            val addressList: List<Address> = geocoder.getFromLocationName(locationName,1)
+//            if (addressList.isNotEmpty()){
+//                val address = addressList[0]
+//                goToLocation(address.latitude,address.longitude)
+//                googleMap.addMarker(MarkerOptions().position(LatLng(address.latitude,address.longitude)))
+//                Toast.makeText(
+//                    this@MapsActivity,
+//                    address.locality,
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//        } catch (e:IOException){
+//            e.printStackTrace()
+//        }
+//    }
 
 //    @SuppressLint("MissingPermission")
 //    private fun currentLoc() {
@@ -135,6 +135,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    //TODO: Minta permission nya ko ga langsung nyalain GPS nya aja ya ?
     private fun isGpsEnabled(): Boolean {
         val locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
         val providerEnable = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
