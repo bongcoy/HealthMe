@@ -7,6 +7,11 @@
     <string name="pharmacy_menu">Pharmacy</string>
     <string name="profile_menu">Profile</string>
 
+    <!--    Dummy-->
+    <string name="dummy_hospital1">RS Hermina Pasteur</string>
+    <string name="dummy_distance1">5 km</string>
+    <string name="dummy_waiting_status1">tidak penuh</string>
+
     <string name="rumah_sakit">Rumah Sakit</string>
     <string name="apotek">Apotek</string>
     <string name="diagnosis">Diagnosis</string>
@@ -32,11 +37,6 @@
     <string name="cek_gejala">Cek Gejala</string>
     <string name="antrean">Antrean:</string>
     <string name="from_ur_loc">dari lokasi Anda</string>
-
-    <!--    Dummy-->
-    <string name="dummy_hospital1">RS Hermina Pasteur</string>
-    <string name="dummy_distance1">5 km</string>
-    <string name="dummy_waiting_status1">tidak penuh</string>
     <string name="buat_janji_rs">Buat Janji RS</string>
 
 </resources>
