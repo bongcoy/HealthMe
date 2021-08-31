@@ -34,7 +34,6 @@ object DoctorsData {
         get() {
             val arrList = arrayListOf<Doctor>()
             for (position in doctorNames.indices) {
-                //TODO: Bikin array 2D
                 val doctor = Doctor()
                 doctor.photo = doctorPhotos[position]
                 doctor.name = doctorNames[position]

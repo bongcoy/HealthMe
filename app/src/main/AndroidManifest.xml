@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LabHealthme">
         <activity
+            android:name=".doctor.DoctorActivity"
+            android:exported="true" />
+        <activity
             android:name=".maps.ChooseSearchLocActivity"
             android:exported="true" />
         <activity

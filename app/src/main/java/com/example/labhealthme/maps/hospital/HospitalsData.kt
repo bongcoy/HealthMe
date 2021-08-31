@@ -59,7 +59,9 @@ object HospitalsData {
         "tidak penuh"
     )
 
-    private var listDoctors: ArrayList<Doctor> = DoctorsData.listData
+    private var listDoctors: Array<ArrayList<Doctor>> = arrayOf(
+        //TODO: Harus cepet selesai !!!
+    )
 
     val listData: ArrayList<Hospital>
         get() {
@@ -70,7 +72,6 @@ object HospitalsData {
                 hospital.name = HospitalsData.names[position]
                 hospital.distance = HospitalsData.distances[position]
                 hospital.waitingStatus = HospitalsData.status[position]
-                //TODO: Harus cepet selesai !!!
 //                hospital.doctors = HospitalsData.listDoctors[position]
                 arrList.add(hospital)
             }

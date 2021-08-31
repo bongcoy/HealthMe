@@ -1,11 +1,13 @@
 package com.example.labhealthme.maps.hospital
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.labhealthme.databinding.ItemHospitalBinding
+import com.example.labhealthme.doctor.DoctorActivity
 
 class HospitalAdapter(private val listHospital: ArrayList<Hospital>) :
     RecyclerView.Adapter<HospitalAdapter.CardViewViewHolder>() {
@@ -31,11 +33,8 @@ class HospitalAdapter(private val listHospital: ArrayList<Hospital>) :
             tvStatusAntrean.text = hospital.waitingStatus
         }
         holder.itemView.setOnClickListener {
-            Toast.makeText(
-                holder.itemView.context,
-                listHospital[holder.adapterPosition].name + " terpilih",
-                Toast.LENGTH_SHORT
-            ).show()
+            //TODO: Move to DoctorAct
+            val moveIntent = Intent()
         }
     }
 
