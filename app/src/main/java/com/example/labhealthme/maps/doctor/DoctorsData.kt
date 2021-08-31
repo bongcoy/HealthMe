@@ -1,17 +1,20 @@
 package com.example.labhealthme.maps.doctor
 
+import com.example.labhealthme.R
+
 object DoctorsData {
     private val doctorPhotos = arrayOf(
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10
+        R.drawable.photo_doctordummy1,
+        R.drawable.photo_doctordummy1,
+        R.drawable.photo_doctordummy1,
+        R.drawable.photo_doctordummy1,
+        R.drawable.photo_doctordummy1,
+        R.drawable.photo_doctordummy1,
+        R.drawable.photo_doctordummy1,
+        R.drawable.photo_doctordummy1,
+        R.drawable.photo_doctordummy1,
+        R.drawable.photo_doctordummy1,
+        R.drawable.photo_doctordummy1
     )
 
     private val doctorNames = arrayOf(
