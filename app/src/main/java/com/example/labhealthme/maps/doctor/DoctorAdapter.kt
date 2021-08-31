@@ -10,6 +10,7 @@ import com.example.labhealthme.databinding.ItemDoctorBinding
 class DoctorAdapter(private val listDoctor: ArrayList<Doctor>) :
     RecyclerView.Adapter<DoctorAdapter.ListViewViewHolder>() {
     private lateinit var binding: ItemDoctorBinding
+
     inner class ListViewViewHolder(binding: ItemDoctorBinding) :
         RecyclerView.ViewHolder(binding.root)
 

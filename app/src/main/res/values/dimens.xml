@@ -6,4 +6,5 @@
     <dimen name="item_hospital_width">170dp</dimen>
     <dimen name="item_hospital_height">80dp</dimen>
     <dimen name="item_hospital_radius">12dp</dimen>
+    <dimen name="item_ver_hospital_size">112dp</dimen>
 </resources>

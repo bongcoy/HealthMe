@@ -2,7 +2,6 @@ package com.example.labhealthme.maps.hospital
 
 import com.example.labhealthme.R
 import com.example.labhealthme.maps.doctor.Doctor
-import com.example.labhealthme.maps.doctor.DoctorsData
 
 object HospitalsData {
     private val photos = intArrayOf(

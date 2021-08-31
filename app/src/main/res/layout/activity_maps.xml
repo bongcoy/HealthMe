@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_hospital"
+        tools:listitem="@layout/item_hospital_horizontal"
         tools:orientation="horizontal" />
 
     <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->

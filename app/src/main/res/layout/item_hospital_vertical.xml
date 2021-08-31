@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/iv_hospital"
+        android:layout_width="@dimen/item_ver_hospital_size"
+        android:layout_height="@dimen/item_ver_hospital_size"
+        android:layout_marginRight="8dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/photo_hospitaldummy1" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_hospital_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/dummy_hospital1"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_hospital_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_hospital_name"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/dummy_distance1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_hospital_distance"
+            android:layout_toRightOf="@id/tv_hospital_distance"
+            android:text="@string/from_ur_loc" />
+
+        <TextView
+            android:id="@+id/tv_title_antrean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_hospital_distance"
+            android:layout_marginRight="8dp"
+            android:text="@string/antrean" />
+
+        <TextView
+            android:id="@+id/tv_status_antrean"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_title_antrean"
+            android:layout_toRightOf="@id/tv_title_antrean"
+            android:text="@string/dummy_waiting_status1"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+</LinearLayout>

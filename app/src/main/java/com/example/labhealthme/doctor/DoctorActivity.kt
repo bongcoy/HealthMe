@@ -1,9 +1,9 @@
 package com.example.labhealthme.doctor
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.labhealthme.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.labhealthme.databinding.ActivityDoctorBinding
+import com.example.labhealthme.maps.doctor.Doctor
 
 class DoctorActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDoctorBinding
@@ -11,5 +11,13 @@ class DoctorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDoctorBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val listDoctor =
+            intent.getParcelableArrayListExtra<Doctor>(EXTRA_LIST_DOCTOR) as ArrayList<Doctor>
+
+    }
+
+    companion object {
+        const val EXTRA_LIST_DOCTOR = "extra_list_doctor"
     }
 }

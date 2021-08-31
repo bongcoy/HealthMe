@@ -29,6 +29,8 @@ import java.util.*
 // TODO : First run ga minta request
 // TODO : ForResult nya ga jalan
 
+// TODO : UI => RecyclerHorizontal belom
+
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var isPermissionGranted: Boolean = false
     private var GPS_REQUEST_CODE = 1
