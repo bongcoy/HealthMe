@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.labhealthme.databinding.ActivityChooseSearchLocBinding
 import com.example.labhealthme.doctor.DoctorActivity
-import com.example.labhealthme.maps.doctor.Doctor
-import com.example.labhealthme.maps.hospital.Hospital
-import com.example.labhealthme.maps.hospital.HospitalVerticalAdapter
-import com.example.labhealthme.maps.hospital.HospitalsData
+import com.example.labhealthme.doctor.Doctor
+import com.example.labhealthme.hospital.Hospital
+import com.example.labhealthme.hospital.HospitalVerticalAdapter
+import com.example.labhealthme.hospital.HospitalsData
 
 class ChooseSearchLocActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChooseSearchLocBinding

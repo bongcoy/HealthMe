@@ -3,7 +3,6 @@ package com.example.labhealthme.doctor
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.labhealthme.databinding.ActivityDoctorBinding
-import com.example.labhealthme.maps.doctor.Doctor
 
 class DoctorActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDoctorBinding

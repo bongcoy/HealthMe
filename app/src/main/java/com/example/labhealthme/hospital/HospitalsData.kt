@@ -1,7 +1,7 @@
-package com.example.labhealthme.maps.hospital
+package com.example.labhealthme.hospital
 
 import com.example.labhealthme.R
-import com.example.labhealthme.maps.doctor.Doctor
+import com.example.labhealthme.doctor.Doctor
 
 object HospitalsData {
     private val photos = intArrayOf(
@@ -65,12 +65,12 @@ object HospitalsData {
     val listData: ArrayList<Hospital>
         get() {
             val arrList = arrayListOf<Hospital>()
-            for (position in HospitalsData.names.indices) {
+            for (position in names.indices) {
                 val hospital = Hospital()
-                hospital.photo = HospitalsData.photos[position]
-                hospital.name = HospitalsData.names[position]
-                hospital.distance = HospitalsData.distances[position]
-                hospital.waitingStatus = HospitalsData.status[position]
+                hospital.photo = photos[position]
+                hospital.name = names[position]
+                hospital.distance = distances[position]
+                hospital.waitingStatus = status[position]
 //                hospital.doctors = HospitalsData.listDoctors[position]
                 arrList.add(hospital)
             }

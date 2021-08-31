@@ -1,4 +1,4 @@
-package com.example.labhealthme.maps.doctor
+package com.example.labhealthme.doctor
 
 import com.example.labhealthme.R
 

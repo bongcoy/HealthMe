@@ -1,7 +1,7 @@
-package com.example.labhealthme.maps.hospital
+package com.example.labhealthme.hospital
 
 import android.os.Parcelable
-import com.example.labhealthme.maps.doctor.Doctor
+import com.example.labhealthme.doctor.Doctor
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

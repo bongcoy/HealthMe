@@ -1,4 +1,4 @@
-package com.example.labhealthme.maps.hospital
+package com.example.labhealthme.hospital
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
