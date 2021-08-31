@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.labhealthme.databinding.ItemHospitalVerticalBinding
+import com.example.labhealthme.databinding.ItemHospitalHorizontalBinding
 
-class HospitalVerticalAdapter(private val listHospital: ArrayList<Hospital>) :
-    RecyclerView.Adapter<HospitalVerticalAdapter.ListViewViewHolder>() {
-    private lateinit var binding: ItemHospitalVerticalBinding
+class HospitalHorizontalAdapter(private val listHospital: ArrayList<Hospital>) :
+    RecyclerView.Adapter<HospitalHorizontalAdapter.CardViewViewHolder>() {
+    private lateinit var binding: ItemHospitalHorizontalBinding
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
@@ -20,25 +20,32 @@ class HospitalVerticalAdapter(private val listHospital: ArrayList<Hospital>) :
         this.onItemClickCallback = onItemClickCallback
     }
 
-    inner class ListViewViewHolder(binding: ItemHospitalVerticalBinding) :
+    inner class CardViewViewHolder(binding: ItemHospitalHorizontalBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewViewHolder {
         binding =
-            ItemHospitalVerticalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ListViewViewHolder(binding)
+            ItemHospitalHorizontalBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        return CardViewViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ListViewViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CardViewViewHolder, position: Int) {
         val hospital = listHospital[position]
+
         Glide.with(holder.itemView.context)
             .load(hospital.photo)
             .into(binding.ivHospital)
+
         binding.apply {
             tvHospitalName.text = hospital.name
             "${hospital.distance.toString()}km".also { tvHospitalDistance.text = it }
             tvStatusAntrean.text = hospital.waitingStatus
         }
+
         holder.itemView.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
@@ -50,5 +57,4 @@ class HospitalVerticalAdapter(private val listHospital: ArrayList<Hospital>) :
     }
 
     override fun getItemCount(): Int = listHospital.size
-
 }

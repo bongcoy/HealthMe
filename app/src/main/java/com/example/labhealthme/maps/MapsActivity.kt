@@ -13,8 +13,14 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.labhealthme.R
 import com.example.labhealthme.databinding.ActivityMapsBinding
+import com.example.labhealthme.doctor.Doctor
+import com.example.labhealthme.doctor.DoctorActivity
+import com.example.labhealthme.hospital.Hospital
+import com.example.labhealthme.hospital.HospitalHorizontalAdapter
+import com.example.labhealthme.hospital.HospitalsData
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.*
@@ -35,6 +41,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var isPermissionGranted: Boolean = false
     private var GPS_REQUEST_CODE = 1
     private val TAG = "MAPS ACT WOYYYYY"
+    private var listHospital: ArrayList<Hospital> = arrayListOf()
 
     private lateinit var binding: ActivityMapsBinding
     private lateinit var googleMap: GoogleMap
@@ -72,10 +79,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         binding.apply {
 //            ivSearchIcon.setOnClickListener(this@MapsActivity::geoLocate)
+
+//            RecyclerView
+            rvHospitalsHorizontal.setHasFixedSize(true)
+            listHospital.addAll(HospitalsData.listData)
+            showRecyclerList()
         }
 //        binding.btn_my_current.setOnClickListener {
 //            currentLoc()
 //        }
+
     }
 
     @SuppressLint("MissingPermission")
@@ -117,12 +130,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 //        }
 //    }
 
-    private fun goToLocation(latitude: Double, longitude: Double) {
-        latLng = LatLng(latitude, longitude)
-        cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10F)
-        googleMap.moveCamera(cameraUpdate)
-        googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
-    }
+//    private fun goToLocation(latitude: Double, longitude: Double) {
+//        latLng = LatLng(latitude, longitude)
+//        cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10F)
+//        googleMap.moveCamera(cameraUpdate)
+//        googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+//    }
 
     private fun initMap() {
         if (isPermissionGranted && isGpsEnabled()) {
@@ -210,5 +223,31 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
         intent.data = uri
         startActivity(intent)
+    }
+
+    //    RecyclerView
+    private fun moveToDoctor(listDoctorinHospital: ArrayList<Doctor>) {
+        val moveIntent = Intent(this, DoctorActivity::class.java)
+        moveIntent.putParcelableArrayListExtra(
+            DoctorActivity.EXTRA_LIST_DOCTOR,
+            listDoctorinHospital
+        )
+        startActivity(moveIntent)
+    }
+
+    private fun showRecyclerList() {
+        val listHospitalHorizontalAdapter = HospitalHorizontalAdapter(listHospital)
+        binding.rvHospitalsHorizontal.apply {
+            layoutManager =
+                LinearLayoutManager(this@MapsActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = listHospitalHorizontalAdapter
+        }
+
+        listHospitalHorizontalAdapter.setOnItemClickCallback(object :
+            HospitalHorizontalAdapter.OnItemClickCallback {
+            override fun onItemClicked(item: Hospital) {
+                moveToDoctor(item.doctors)
+            }
+        })
     }
 }

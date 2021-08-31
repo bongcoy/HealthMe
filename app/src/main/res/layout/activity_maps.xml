@@ -47,7 +47,7 @@
         app:layout_constraintTop_toTopOf="@+id/et_search" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_hospitals"
+        android:id="@+id/rv_hospitals_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
