@@ -7,6 +7,15 @@
     android:padding="@dimen/padding_layout"
     tools:context=".doctor.DoctorActivity">
 
+    <TextView
+        android:id="@+id/tv_hospital_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textSize="16sp"
+        tools:text="@string/dummy_hospital1" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_doctors"
         android:layout_width="match_parent"

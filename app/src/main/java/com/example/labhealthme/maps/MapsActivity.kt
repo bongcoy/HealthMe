@@ -228,12 +228,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     //    RecyclerView
-    private fun moveToDoctor(idxListDoctor: Int) {
+    private fun moveToDoctor(hospital: Hospital, idxListDoctor: Int) {
         val moveIntent = Intent(this, DoctorActivity::class.java)
-        moveIntent.putExtra(
-            DoctorActivity.EXTRA_IDX_DOCTOR,
-            idxListDoctor
-        )
+        moveIntent.putExtra(DoctorActivity.EXTRA_IDX_DOCTOR, idxListDoctor)
+        moveIntent.putExtra(DoctorActivity.EXTRA_TITLE, hospital.name)
         startActivity(moveIntent)
     }
 
@@ -248,7 +246,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         listHospitalHorizontalAdapter.setOnItemClickCallback(object :
             HospitalHorizontalAdapter.OnItemClickCallback {
             override fun onItemClicked(item: Hospital, position: Int) {
-                moveToDoctor(position)
+                moveToDoctor(item, position)
             }
         })
     }

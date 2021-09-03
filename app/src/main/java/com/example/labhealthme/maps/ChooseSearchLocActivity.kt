@@ -13,11 +13,13 @@ import com.example.labhealthme.hospital.HospitalsData
 class ChooseSearchLocActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChooseSearchLocBinding
     private var listHospital: ArrayList<Hospital> = arrayListOf()
+    private val actTitle = "Pilih Rumah Sakit"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChooseSearchLocBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setActionBarTitle(actTitle)
 
         binding.rvHospitalsVertical.setHasFixedSize(true)
         listHospital.addAll(HospitalsData.listData)
@@ -46,5 +48,9 @@ class ChooseSearchLocActivity : AppCompatActivity() {
                 moveToDoctor(position)
             }
         })
+    }
+
+    private fun setActionBarTitle(title : String) {
+        supportActionBar?.title = title
     }
 }
