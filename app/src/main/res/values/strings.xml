@@ -11,6 +11,7 @@
     <string name="dummy_hospital1">Rumah Sakit Risa Sentra Medika Lombok Timur</string>
     <string name="dummy_distance1">5 km</string>
     <string name="dummy_waiting_status1">tidak penuh</string>
+    <string name="dummy_doctor_name1">dr. Nila Indria Utami</string>
 
     <string name="rumah_sakit">Rumah Sakit</string>
     <string name="apotek">Apotek</string>
@@ -38,6 +39,5 @@
     <string name="antrean">Antrean:</string>
     <string name="from_ur_loc">dari lokasi Anda</string>
     <string name="buat_janji_rs">Buat Janji RS</string>
-    <string name="dummy_doctor_name1">dr. Nila Indria Utami</string>
 
 </resources>

@@ -50,7 +50,7 @@ class ChooseSearchLocActivity : AppCompatActivity() {
         })
     }
 
-    private fun setActionBarTitle(title : String) {
+    private fun setActionBarTitle(title: String) {
         supportActionBar?.title = title
     }
 }

@@ -1,10 +1,8 @@
 package com.example.labhealthme.diagnose
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.KeyEvent
-import com.example.labhealthme.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.labhealthme.databinding.ActivityDiagnoseBinding
 
 class DiagnoseActivity : AppCompatActivity() {
@@ -19,7 +17,7 @@ class DiagnoseActivity : AppCompatActivity() {
 
         binding.btnCekGejala.setOnClickListener {
             rawGejala = binding.etGejala.text.toString()
-            Log.d(TAG,rawGejala)
+            Log.d(TAG, rawGejala)
         }
     }
 }
