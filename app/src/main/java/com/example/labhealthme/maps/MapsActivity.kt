@@ -35,7 +35,6 @@ import java.util.*
 // TODO : First run ga minta request
 // TODO : ForResult nya ga jalan
 
-// TODO : UI => RecyclerHorizontal belom
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var isPermissionGranted: Boolean = false
@@ -84,19 +83,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             rvHospitalsHorizontal.setHasFixedSize(true)
             listHospital.addAll(HospitalsData.listData)
             showRecyclerList()
-        }
-//        binding.btn_my_current.setOnClickListener {
-//            currentLoc()
-//        }
 
-    }
+//            btn_my_current.setOnClickListener {
+//            currentLoc()}
+            }
+        }
 
     @SuppressLint("MissingPermission")
     override fun onMapReady(p0: GoogleMap) {
         Log.d(TAG, "MAP dah readyyyyyy")
         googleMap = p0
         googleMap.isMyLocationEnabled = true
-        // TODO: Munculin tombol saat buka pertama kali
+        // TODO: Munculin tombol isMy saat buka pertama kali
+        // atau emang ga bisa kalo GPS nya ga nyala ?
         googleMap.uiSettings.isMyLocationButtonEnabled = true
     }
 
@@ -226,11 +225,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     //    RecyclerView
-    private fun moveToDoctor(listDoctorinHospital: ArrayList<Doctor>) {
+    private fun moveToDoctor(idxListDoctor: Int) {
         val moveIntent = Intent(this, DoctorActivity::class.java)
-        moveIntent.putParcelableArrayListExtra(
-            DoctorActivity.EXTRA_LIST_DOCTOR,
-            listDoctorinHospital
+        moveIntent.putExtra(
+            DoctorActivity.EXTRA_IDX_DOCTOR,
+            idxListDoctor
         )
         startActivity(moveIntent)
     }
@@ -245,8 +244,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         listHospitalHorizontalAdapter.setOnItemClickCallback(object :
             HospitalHorizontalAdapter.OnItemClickCallback {
-            override fun onItemClicked(item: Hospital) {
-                moveToDoctor(item.doctors)
+            override fun onItemClicked(item: Hospital, position: Int) {
+                moveToDoctor(position)
             }
         })
     }

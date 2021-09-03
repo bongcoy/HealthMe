@@ -1,10 +1,10 @@
 package com.example.labhealthme.doctor
 
+import android.util.Log
 import com.example.labhealthme.R
 
 object DoctorsData {
     private val doctorPhotos = arrayOf(
-        R.drawable.photo_doctordummy1,
         R.drawable.photo_doctordummy1,
         R.drawable.photo_doctordummy1,
         R.drawable.photo_doctordummy1,
@@ -30,15 +30,17 @@ object DoctorsData {
         "Dr. Ketut Mendra"
     )
 
-    val listData: ArrayList<Doctor>
+    val listData: List<Doctor>
         get() {
-            val arrList = arrayListOf<Doctor>()
+            val listDoc = arrayListOf<Doctor>()
             for (position in doctorNames.indices) {
                 val doctor = Doctor()
                 doctor.photo = doctorPhotos[position]
                 doctor.name = doctorNames[position]
-                arrList.add(doctor)
+                listDoc.add(doctor)
+                Log.d("CHAAKSS DoctorsData","${listDoc}")
             }
-            return arrList
+            Log.d("CHAAKSS DoctorsData","${listDoc.size}")
+            return listDoc.toList()
         }
 }

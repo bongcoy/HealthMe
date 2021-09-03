@@ -25,11 +25,11 @@ class ChooseSearchLocActivity : AppCompatActivity() {
         showRecyclerList()
     }
 
-    private fun moveToDoctor(listDoctorinHospital: ArrayList<Doctor>) {
+    private fun moveToDoctor(idxListDoctor: Int) {
         val moveIntent = Intent(this, DoctorActivity::class.java)
-        moveIntent.putParcelableArrayListExtra(
-            DoctorActivity.EXTRA_LIST_DOCTOR,
-            listDoctorinHospital
+        moveIntent.putExtra(
+            DoctorActivity.EXTRA_IDX_DOCTOR,
+            idxListDoctor
         )
         startActivity(moveIntent)
     }
@@ -43,8 +43,8 @@ class ChooseSearchLocActivity : AppCompatActivity() {
 
         listHospitalVerticalAdapter.setOnItemClickCallback(object :
             HospitalVerticalAdapter.OnItemClickCallback {
-            override fun onItemClicked(item: Hospital) {
-                moveToDoctor(item.doctors)
+            override fun onItemClicked(item: Hospital, position: Int) {
+                moveToDoctor(position)
             }
         })
     }

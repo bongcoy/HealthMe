@@ -13,7 +13,7 @@ class HospitalHorizontalAdapter(private val listHospital: ArrayList<Hospital>) :
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
-        fun onItemClicked(item: Hospital)
+        fun onItemClicked(item: Hospital, position: Int)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -52,7 +52,7 @@ class HospitalHorizontalAdapter(private val listHospital: ArrayList<Hospital>) :
                 listHospital[holder.adapterPosition].name + " terpilih",
                 Toast.LENGTH_SHORT
             ).show()
-            onItemClickCallback.onItemClicked(listHospital[holder.adapterPosition])
+            onItemClickCallback.onItemClicked(listHospital[holder.adapterPosition], holder.adapterPosition)
         }
     }
 

@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.labhealthme.databinding.ItemHospitalVerticalBinding
 
-class HospitalVerticalAdapter(private val listHospital: ArrayList<Hospital>) :
+class HospitalVerticalAdapter(private val listHospital: MutableList<Hospital>) :
     RecyclerView.Adapter<HospitalVerticalAdapter.ListViewViewHolder>() {
     private lateinit var binding: ItemHospitalVerticalBinding
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
-        fun onItemClicked(item: Hospital)
+        fun onItemClicked(item: Hospital, position: Int)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -31,6 +31,7 @@ class HospitalVerticalAdapter(private val listHospital: ArrayList<Hospital>) :
 
     override fun onBindViewHolder(holder: ListViewViewHolder, position: Int) {
         val hospital = listHospital[position]
+
         Glide.with(holder.itemView.context)
             .load(hospital.photo)
             .into(binding.ivHospital)
@@ -39,13 +40,14 @@ class HospitalVerticalAdapter(private val listHospital: ArrayList<Hospital>) :
             "${hospital.distance.toString()}km".also { tvHospitalDistance.text = it }
             tvStatusAntrean.text = hospital.waitingStatus
         }
+
         holder.itemView.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
                 listHospital[holder.adapterPosition].name + " terpilih",
                 Toast.LENGTH_SHORT
             ).show()
-            onItemClickCallback.onItemClicked(listHospital[holder.adapterPosition])
+            onItemClickCallback.onItemClicked(listHospital[holder.adapterPosition],holder.adapterPosition)
         }
     }
 

@@ -10,5 +10,5 @@ data class Hospital(
     var name: String = "",
     var distance: Int = 0,
     var waitingStatus: String = "",
-    var doctors: ArrayList<Doctor> = arrayListOf()
+    var doctors: List<Doctor> = listOf<Doctor>()
 ) : Parcelable
