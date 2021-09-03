@@ -25,11 +25,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/et_search" />
 
-        <EditText
-            android:id="@+id/et_search"
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/btn_choose_loc"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:drawableStart="@drawable/ic_location"
+            android:elevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/iv_search_icon"
             app:layout_constraintStart_toEndOf="@+id/btn_back"

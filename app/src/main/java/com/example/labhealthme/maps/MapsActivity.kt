@@ -77,9 +77,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         binding.apply {
 //            ivSearchIcon.setOnClickListener(this@MapsActivity::geoLocate)
-
+            btnChooseLoc.setOnClickListener {
+                val moveIntn = Intent(this@MapsActivity, ChooseSearchLocActivity::class.java)
+                startActivity(moveIntn)
+            }
 //            RecyclerView
             rvHospitalsHorizontal.setHasFixedSize(true)
+            rvHospitalsHorizontal.setItemViewCacheSize(9)
             listHospital.addAll(HospitalsData.listData)
             showRecyclerList()
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/item_ver_hospital_size"
     android:layout_margin="4dp"
     android:orientation="horizontal">
 
@@ -24,17 +25,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="@string/dummy_hospital1"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="@string/dummy_hospital1" />
 
         <TextView
             android:id="@+id/tv_hospital_distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_hospital_name"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="4dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/dummy_distance1" />
+            tools:text="@string/dummy_distance1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,8 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/tv_title_antrean"
             android:layout_toRightOf="@id/tv_title_antrean"
-            android:text="@string/dummy_waiting_status1"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="@string/dummy_waiting_status1" />
     </RelativeLayout>
 
 

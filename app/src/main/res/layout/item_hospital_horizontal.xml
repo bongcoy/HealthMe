@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
@@ -23,12 +24,15 @@
 
         <TextView
             android:id="@+id/tv_hospital_name"
-            android:layout_width="wrap_content"
+            android:layout_width="168dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_hospital"
             android:layout_marginBottom="12dp"
-            android:text="@string/dummy_hospital1"
-            android:textStyle="bold" />
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textStyle="bold"
+            tools:text="@string/dummy_hospital1" />
 
         <TextView
             android:id="@+id/tv_hospital_distance"
@@ -37,7 +41,7 @@
             android:layout_below="@id/tv_hospital_name"
             android:layout_marginRight="4dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/dummy_distance1" />
+            tools:text="@string/dummy_distance1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,8 +65,8 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/tv_title_antrean"
             android:layout_toRightOf="@id/tv_title_antrean"
-            android:text="@string/dummy_waiting_status1"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="@string/dummy_waiting_status1" />
 
         <Button
             android:id="@+id/btn_make_an_appointment"
