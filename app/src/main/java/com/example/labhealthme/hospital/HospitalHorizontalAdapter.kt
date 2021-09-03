@@ -52,7 +52,10 @@ class HospitalHorizontalAdapter(private val listHospital: ArrayList<Hospital>) :
                 listHospital[holder.adapterPosition].name + " terpilih",
                 Toast.LENGTH_SHORT
             ).show()
-            onItemClickCallback.onItemClicked(listHospital[holder.adapterPosition], holder.adapterPosition)
+            onItemClickCallback.onItemClicked(
+                listHospital[holder.adapterPosition],
+                holder.adapterPosition
+            )
         }
     }
 

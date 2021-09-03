@@ -80,7 +80,7 @@ object HospitalsData {
                 hospital.name = names[position]
                 hospital.distance = distances[position]
                 hospital.waitingStatus = status[position]
-                Log.d("CHAAKSS HospsDocData","${DoctorsData.listData.slice(0..5)}")
+                Log.d("CHAAKSS HospsDocData", "${DoctorsData.listData.slice(0..5)}")
                 hospital.doctors = listDoctors[position]
                 arrList.add(hospital)
             }

@@ -16,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.labhealthme.R
 import com.example.labhealthme.databinding.ActivityMapsBinding
-import com.example.labhealthme.doctor.Doctor
 import com.example.labhealthme.doctor.DoctorActivity
 import com.example.labhealthme.hospital.Hospital
 import com.example.labhealthme.hospital.HospitalHorizontalAdapter
@@ -86,8 +85,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 //            btn_my_current.setOnClickListener {
 //            currentLoc()}
-            }
         }
+    }
 
     @SuppressLint("MissingPermission")
     override fun onMapReady(p0: GoogleMap) {

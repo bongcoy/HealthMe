@@ -4,8 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.labhealthme.databinding.ActivityDoctorBinding
-import com.example.labhealthme.hospital.Hospital
-import com.example.labhealthme.hospital.HospitalVerticalAdapter
 import com.example.labhealthme.hospital.HospitalsData
 
 class DoctorActivity : AppCompatActivity() {
@@ -18,7 +16,7 @@ class DoctorActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val idxDoctor =
-            intent.getIntExtra(EXTRA_IDX_DOCTOR,0)
+            intent.getIntExtra(EXTRA_IDX_DOCTOR, 0)
 
         binding.rvDoctors.setHasFixedSize(true)
         listDoctor.addAll(HospitalsData.listData[idxDoctor].doctors)

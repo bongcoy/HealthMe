@@ -38,9 +38,9 @@ object DoctorsData {
                 doctor.photo = doctorPhotos[position]
                 doctor.name = doctorNames[position]
                 listDoc.add(doctor)
-                Log.d("CHAAKSS DoctorsData","${listDoc}")
+                Log.d("CHAAKSS DoctorsData", "${listDoc}")
             }
-            Log.d("CHAAKSS DoctorsData","${listDoc.size}")
+            Log.d("CHAAKSS DoctorsData", "${listDoc.size}")
             return listDoc.toList()
         }
 }

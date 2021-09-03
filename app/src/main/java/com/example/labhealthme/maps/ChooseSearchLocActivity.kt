@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.labhealthme.databinding.ActivityChooseSearchLocBinding
 import com.example.labhealthme.doctor.DoctorActivity
-import com.example.labhealthme.doctor.Doctor
 import com.example.labhealthme.hospital.Hospital
 import com.example.labhealthme.hospital.HospitalVerticalAdapter
 import com.example.labhealthme.hospital.HospitalsData
